@@ -1,22 +1,24 @@
-import React from "react";
-import Logo from "@Atoms/Logo";
-import { LOGO_IMG_URL as Icon } from "@Constant";
-import Swap from "@Organisms/Intro/Swap";
-import Download from "@Organisms/Intro/Download";
-import PromotionalText from "@Organisms/Intro/PromotionalText";
-import ToHome from "@Organisms/Intro/ToHome";
+import { useState, useEffect } from "react";
+import IntroTemplate from "@Templates/Intro";
+import { IntroBanner, LOGO_IMG_URL } from "@Constant";
 
 const Intro = () => {
+  const [page, setPage] = useState(1);
+
+  const pageMove = (cnt) => {
+    if (cnt === 4) return cnt;
+    else return cnt + 1;
+  };
+
+  useEffect(() => {}, []);
+
   return (
     <>
-      <Logo location={Icon} />
-      <Swap turn={2} />
-      <Download
-        forAppStore="App store Link"
-        forPlayStore="Playstore store Link"
+      <IntroTemplate
+        backgroundURL={IntroBanner[page].background}
+        turn={page}
+        logoURL={LOGO_IMG_URL}
       />
-      <PromotionalText promotion="HAHAHA" />
-      <ToHome purpose="사장님 서비스" />
     </>
   );
 };

@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-size : 100%;
     box-sizing : border-box;
     text-decoration : none;
+    font-family: 'Nanum Gothic', sans-serif;
     color : #000000;
   }
 

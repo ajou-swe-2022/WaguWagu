@@ -1,12 +1,15 @@
-import { IntroBannerColor, IntroBannerSize, IntroBannerWeight } from "@Style";
 import { PromotionalTextContainer } from "./styles";
+
+const IntroBannerFontColor = "#ffffff";
+const IntroBannerFontSize = 60;
+const IntroBannerFontWeight = 700;
 
 const PromotionalText = ({ promotion }) => {
   return (
     <PromotionalTextContainer
-      color={IntroBannerColor}
-      size={IntroBannerSize}
-      weight={IntroBannerWeight}
+      color={IntroBannerFontColor}
+      size={IntroBannerFontSize}
+      weight={IntroBannerFontWeight}
     >
       {promotion}
     </PromotionalTextContainer>

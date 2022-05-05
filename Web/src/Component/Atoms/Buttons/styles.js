@@ -17,14 +17,21 @@ const SwapBtnContainer = styled.button`
 `;
 
 const DownloadBtnContainer = styled.button`
-  background-color: #c4c4c4;
-  width: 276px;
-  height: 121px;
-  border-radius: 30px;
+  background-color: ${DefaultColor};
+  color: white;
+  width: 150px;
+  height: 70px;
+  border-radius: 25px;
   border: 0px;
   filter: drop-shadow(2px 2px 2px #000000);
   font-weight: 800;
   font-size: 30px;
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: ${DefaultColor};
+  }
 `;
 
 const ToHomeBtnContainer = styled.button`

@@ -12,7 +12,7 @@ const SwapContainer = styled.div`
 
 const DownloadContainer = styled.div`
   margin: 10px;
-  width: 589px;
+  width: 320px;
   height: 121px;
   display: flex;
   flex-direction: row;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const PromotionalTextContainer = styled.h1`
   font-size: ${(props) => props.size}px;
-  font-weigth: ${(props) => props.weight};
+  font-weight: ${(props) => props.weight};
   color: ${(props) => props.color};
 `;
 
