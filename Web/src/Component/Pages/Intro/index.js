@@ -1,19 +1,22 @@
 import React from "react";
-import SwapButton from "@Atoms/Buttons/Swap";
-import DownloadButton from "@Atoms/Buttons/Download";
 import Logo from "@Atoms/Logo";
-import SwapGroup from "@Organisms/Intro/SwapGroup";
 import { LOGO_IMG_URL as Icon } from "@Constant";
+import Swap from "@Organisms/Intro/Swap";
+import Download from "@Organisms/Intro/Download";
+import PromotionalText from "@Organisms/Intro/PromotionalText";
+import ToHome from "@Organisms/Intro/ToHome";
 
 const Intro = () => {
   return (
     <>
-      <SwapButton onClick={false} />
-      <SwapButton onClick={true} />
-      <DownloadButton purpose="App store Link" />
-      <DownloadButton purpose="Playstore store Link" />
       <Logo location={Icon} />
-      <SwapGroup clickedBtn={0} />
+      <Swap turn={2} />
+      <Download
+        forAppStore="App store Link"
+        forPlayStore="Playstore store Link"
+      />
+      <PromotionalText promotion="HAHAHA" />
+      <ToHome purpose="사장님 서비스" />
     </>
   );
 };

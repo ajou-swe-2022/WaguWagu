@@ -5,8 +5,6 @@ const GlobalStyle = createGlobalStyle`
 
   ${reset}
   * {
-    margin : 0;
-    padding : 0;
     font-size : 100%;
     box-sizing : border-box;
     text-decoration : none;
