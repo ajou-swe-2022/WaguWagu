@@ -1,21 +1,24 @@
 import Logo from "@Atoms/Logo";
 import {
+  LOGO_IMG_URL,
   IntroBanner,
   IntroAppStoreDownloadText,
   IntroPlayStoreDownloadText,
   IntroToHomeText,
+  APPSTORE_LOGO,
+  PLAYSTORE_LOGO,
 } from "@Constant";
-import { Download, PromotionalText, Swap, ToHome } from "@Organisms/Intro";
+import { Download, PromotionalText, ToHome, Swap } from "@Organisms/Intro";
 import {
   Container,
   DownloadContainer,
-  SwapperContainer,
   LogoContainer,
+  SwapContainer,
   TextContainer,
   ToHomeContainer,
 } from "./styles";
 
-const IntroTemplate = ({ backgroundURL, turn, logoURL }) => {
+const IntroTemplate = ({ turn }) => {
   const RenderTexts = (turn) => {
     return IntroBanner[turn].text.map((el) => {
       return (
@@ -35,22 +38,26 @@ const IntroTemplate = ({ backgroundURL, turn, logoURL }) => {
   };
 
   return (
-    <Container backgroundURL={backgroundURL} turn={turn}>
-      <DownloadContainer>
-        <Download
-          forAppStore={IntroAppStoreDownloadText}
-          forPlayStore={IntroPlayStoreDownloadText}
-        />
-      </DownloadContainer>
-      <SwapperContainer>
-        <Swap turn={turn} />
-      </SwapperContainer>
-      <LogoContainer>
-        <Logo location={logoURL} />
-      </LogoContainer>
-      {RenderTexts(turn)}
-      {turn === 4 ? RenderToHome() : null}
-    </Container>
+    <>
+      <Container backgroundURL={IntroBanner[turn].background} turn={turn}>
+        <DownloadContainer>
+          <Download
+            forAppStore={IntroAppStoreDownloadText}
+            forPlayStore={IntroPlayStoreDownloadText}
+            AppLogo={APPSTORE_LOGO}
+            PlayLogo={PLAYSTORE_LOGO}
+          />
+        </DownloadContainer>
+        <LogoContainer>
+          <Logo location={LOGO_IMG_URL} />
+        </LogoContainer>
+        <SwapContainer>
+          <Swap turn={turn} />
+        </SwapContainer>
+        {RenderTexts(turn)}
+        {turn === 4 ? RenderToHome() : null}
+      </Container>
+    </>
   );
 };
 

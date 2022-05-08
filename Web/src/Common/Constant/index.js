@@ -1,9 +1,13 @@
 export const LOGO_IMG_URL = `/assets/icon/waguwagu.png`;
 
+export const APPSTORE_LOGO = "/assets/pre-login/AppStore.png";
+
+export const PLAYSTORE_LOGO = "/assets/pre-login/PlayStore.svg";
+
 // IntroPage 배너 문구
 
 export const IntroBanner = [
-  null,
+  4,
   {
     background: "/assets/pre-login/Pre01.png",
     text: [

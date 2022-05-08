@@ -3,28 +3,23 @@ import styled from "styled-components";
 // page1 page2 page3 page4 마다 보여주는게 다르다
 // props : backgroundImg, downloadBlockPosX, download
 const Container = styled.div`
+  top: 0px;
   height: 100vh;
   position: relative;
   background-image: url(${(props) => props.backgroundURL});
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 `;
 
 const DownloadContainer = styled.div`
-  position: fixed;
-  top: 30px;
-  right: 80px;
-`;
-
-const SwapperContainer = styled.div`
   position: absolute;
-  top: 300px;
-  right: 30px;
+  z-index: 1;
+  top: 30px;
+  right: 50px;
 `;
 
 const LogoContainer = styled.div`
-  position: fixed;
+  position: absolute;
+  z-index: 1;
   bottom: 24px;
   left: 24px;
 `;
@@ -36,16 +31,22 @@ const TextContainer = styled.div`
 `;
 
 const ToHomeContainer = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 30px;
   left: 160px;
+`;
+
+const SwapContainer = styled.div`
+  position: absolute;
+  top: 290px;
+  right: 50px;
 `;
 
 export {
   Container,
   DownloadContainer,
-  SwapperContainer,
   LogoContainer,
   TextContainer,
   ToHomeContainer,
+  SwapContainer,
 };

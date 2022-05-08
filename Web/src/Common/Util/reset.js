@@ -4,6 +4,7 @@ import reset from "styled-reset";
 const GlobalStyle = createGlobalStyle`
 
   ${reset}
+
   * {
     font-size : 100%;
     box-sizing : border-box;

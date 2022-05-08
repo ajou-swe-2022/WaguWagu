@@ -10,6 +10,7 @@ const SwapBtnContainer = styled.button`
   filter: drop-shadow(2px 2px 2px #000000);
   transition: 0.5s;
   &:hover {
+    cursor: pointer;
     transform: scale(1.2);
     background-color: ${DefaultColor};
     opacity: 0.5;
@@ -19,7 +20,7 @@ const SwapBtnContainer = styled.button`
 const DownloadBtnContainer = styled.button`
   background-color: ${DefaultColor};
   color: white;
-  width: 150px;
+  width: 200px;
   height: 70px;
   border-radius: 25px;
   border: 0px;
@@ -27,7 +28,11 @@ const DownloadBtnContainer = styled.button`
   font-weight: 800;
   font-size: 30px;
   transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   &:hover {
+    cursor: pointer;
     transform: scale(1.1);
     background-color: #ffffff;
     color: ${DefaultColor};
@@ -46,9 +51,21 @@ const ToHomeBtnContainer = styled.button`
   font-size: 30px;
   transition: 0.2s;
   &:hover {
+    cursor: pointer;
     background-color: ${DefaultColor};
     color: #ffffff;
   }
 `;
 
-export { SwapBtnContainer, DownloadBtnContainer, ToHomeBtnContainer };
+const IconContainer = styled.img`
+  background-color: transparent;
+  height: 35px;
+  width: 35px;
+`;
+
+export {
+  SwapBtnContainer,
+  DownloadBtnContainer,
+  ToHomeBtnContainer,
+  IconContainer,
+};

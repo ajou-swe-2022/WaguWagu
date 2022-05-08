@@ -1,11 +1,16 @@
 import { DownloadButton } from "@Atoms/Buttons";
 import { DownloadContainer } from "./styles";
 
-const DownloadButtonGroup = ({ forAppStore, forPlayStore }) => {
+const DownloadButtonGroup = ({
+  forAppStore,
+  forPlayStore,
+  AppLogo,
+  PlayLogo,
+}) => {
   return (
     <DownloadContainer>
-      <DownloadButton purpose={forAppStore} />
-      <DownloadButton purpose={forPlayStore} />
+      <DownloadButton purpose={forAppStore} logo={AppLogo} />
+      <DownloadButton purpose={forPlayStore} logo={PlayLogo} />
     </DownloadContainer>
   );
 };
