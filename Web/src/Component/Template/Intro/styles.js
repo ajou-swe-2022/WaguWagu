@@ -11,14 +11,14 @@ const Container = styled.div`
 `;
 
 const DownloadContainer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 30px;
   right: 50px;
 `;
 
 const LogoContainer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 1;
   bottom: 24px;
   left: 24px;
@@ -36,17 +36,10 @@ const ToHomeContainer = styled.div`
   left: 160px;
 `;
 
-const SwapContainer = styled.div`
-  position: absolute;
-  top: 290px;
-  right: 50px;
-`;
-
 export {
   Container,
   DownloadContainer,
   LogoContainer,
   TextContainer,
   ToHomeContainer,
-  SwapContainer,
 };

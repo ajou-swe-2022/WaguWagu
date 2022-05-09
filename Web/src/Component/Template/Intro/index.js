@@ -51,9 +51,6 @@ const IntroTemplate = ({ turn }) => {
         <LogoContainer>
           <Logo location={LOGO_IMG_URL} />
         </LogoContainer>
-        <SwapContainer>
-          <Swap turn={turn} />
-        </SwapContainer>
         {RenderTexts(turn)}
         {turn === 4 ? RenderToHome() : null}
       </Container>

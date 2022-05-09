@@ -1,15 +1,17 @@
 import { SwapButton } from "@Atoms/Buttons";
+import { IntroBanner } from "@Constant/";
 import { SwapContainer } from "./styles";
 
 const SwapButtonGroup = ({ turn }) => {
-  return (
-    <SwapContainer>
-      <SwapButton className="btn1" isFocused={turn === 1} />
-      <SwapButton className="btn2" isFocused={turn === 2} />
-      <SwapButton className="btn3" isFocused={turn === 3} />
-      <SwapButton className="btn4" isFocused={turn === 4} />
-    </SwapContainer>
-  );
+  const renderSwapBtns = () => {
+    const btns = [];
+    for (let i = 1; i <= IntroBanner[0]; ++i) {
+      btns.push(<SwapButton className={`btn${i}`} isFocused={turn === i} />);
+    }
+    return btns;
+  };
+
+  return <SwapContainer>{renderSwapBtns().map((el) => el)}</SwapContainer>;
 };
 
 export default SwapButtonGroup;
