@@ -3,44 +3,49 @@ import { IntroBanner } from "@Constant/";
 import { SwapContainer } from "./styles";
 import { Swap } from "@Organisms/Intro";
 import { useState, useEffect } from "react";
-import _ from "lodash";
 
 const Intro = () => {
   const [curPage, setCurPage] = useState(1);
+  const [nextFlag, setNextFlag] = useState(window.innerHeight / 20);
+  const [beforeFlag, setBeforeFlag] = useState(0);
+
+  const ratio = 3;
 
   const getNext = (cur) => {
-    console.log("next!");
+    const frame = window.innerHeight;
     if (cur < IntroBanner[0]) {
-      window.scrollTo(0, window.innerHeight * (cur + 1));
+      window.scrollTo(0, frame * cur);
+      setNextFlag(frame * cur + frame / ratio);
+      setBeforeFlag(frame * cur - frame / ratio);
       return cur + 1;
     }
     return cur;
   };
 
   const getPrev = (cur) => {
+    const frame = window.innerHeight;
     if (cur !== 1) {
-      window.scrollTo(0, window.innerHeight * (cur - 1));
+      cur -= 1;
+      window.scrollTo(0, frame * cur);
+      setNextFlag(frame * (cur - 1) + frame / ratio);
+      setBeforeFlag(frame * (cur - 1) - frame / ratio);
       return cur - 1;
     }
     return cur;
   };
 
   const handleScroll = () => {
-    console.log(`Y축 ${window.scrollY}`);
-    console.log(`뷰포트 크기 ${window.innerHeight / 20}`);
-    const flag = (curPage - 1) * window.innerHeight + window.innerHeight / 20;
-    // 내려가는 경우
-    if (window.scrollY > flag) {
+    if (window.scrollY > nextFlag) {
       setCurPage(getNext);
     }
-    // 올라가는 경우
-    else {
+    if (window.scrollY < beforeFlag) {
       setCurPage(getPrev);
     }
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    // unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

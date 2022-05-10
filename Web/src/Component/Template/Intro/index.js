@@ -8,12 +8,11 @@ import {
   APPSTORE_LOGO,
   PLAYSTORE_LOGO,
 } from "@Constant";
-import { Download, PromotionalText, ToHome, Swap } from "@Organisms/Intro";
+import { Download, PromotionalText, ToHome } from "@Organisms/Intro";
 import {
   Container,
   DownloadContainer,
   LogoContainer,
-  SwapContainer,
   TextContainer,
   ToHomeContainer,
 } from "./styles";
