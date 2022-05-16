@@ -9,12 +9,14 @@ import {
   Admin,
   AdminTable,
   AdminStore,
+  Error,
 } from "@Pages";
 
 const App = () => {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Intro />} />
         <Route path="/intro" element={<Intro />} />
         <Route path="/enroll" element={<Enroll />} />
         <Route path="/login" element={<Login />} />
@@ -22,7 +24,7 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/store" element={<AdminStore />} />
         <Route path="/admin/table" element={<AdminTable />} />\
-        <Route path="/" element={<Intro />} />
+        <Route path="/*" element={<Error />} />
       </Routes>
     </>
   );

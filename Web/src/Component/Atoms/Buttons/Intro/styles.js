@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { DefaultColor } from "@Style";
 
 const SwapBtnContainer = styled.button`
@@ -39,10 +40,9 @@ const DownloadBtnContainer = styled.button`
   }
 `;
 
-const ToHomeBtnContainer = styled.button`
+const ToHomeBtnContainer = styled(Link)`
   background-color: #ffffff;
-  width: 316px;
-  height: 69px;
+  padding: 10px 15px;
   border-radius: 40px;
   border: 5px solid ${DefaultColor};
   filter: drop-shadow(2px 2px 2px #000000);

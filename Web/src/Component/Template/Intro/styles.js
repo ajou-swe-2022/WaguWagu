@@ -32,7 +32,7 @@ const TextContainer = styled.div`
 
 const ToHomeContainer = styled.div`
   position: absolute;
-  bottom: 30px;
+  bottom: 46px;
   left: 160px;
 `;
 

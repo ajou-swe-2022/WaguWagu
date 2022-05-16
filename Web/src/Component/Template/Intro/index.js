@@ -1,13 +1,11 @@
 import Logo from "@Atoms/Logo";
+import { APPSTORE_LOGO, PLAYSTORE_LOGO } from "@Constant/Common";
 import {
-  LOGO_IMG_URL,
   IntroBanner,
   IntroAppStoreDownloadText,
   IntroPlayStoreDownloadText,
   IntroToHomeText,
-  APPSTORE_LOGO,
-  PLAYSTORE_LOGO,
-} from "@Constant";
+} from "@Constant/Intro";
 import { Download, PromotionalText, ToHome } from "@Organisms/Intro";
 import {
   Container,
@@ -48,10 +46,10 @@ const IntroTemplate = ({ turn }) => {
           />
         </DownloadContainer>
         <LogoContainer>
-          <Logo location={LOGO_IMG_URL} />
+          <Logo />
         </LogoContainer>
-        {RenderTexts(turn)}
         {turn === 4 ? RenderToHome() : null}
+        {RenderTexts(turn)}
       </Container>
     </>
   );

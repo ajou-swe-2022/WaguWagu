@@ -1,4 +1,4 @@
-import ToHomeButton from "@Atoms/Buttons/ToHomeButton";
+import { ToHomeButton } from "@Atoms/Buttons/Intro/";
 import { ToHomeContainer } from "./styles";
 
 const ToHome = ({ purpose }) => {

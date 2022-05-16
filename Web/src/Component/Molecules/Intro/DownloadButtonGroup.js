@@ -1,4 +1,4 @@
-import { DownloadButton } from "@Atoms/Buttons";
+import { DownloadButton } from "@Atoms/Buttons/Intro";
 import { DownloadContainer } from "./styles";
 
 const DownloadButtonGroup = ({

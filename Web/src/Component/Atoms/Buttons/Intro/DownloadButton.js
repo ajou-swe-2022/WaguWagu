@@ -3,8 +3,7 @@ import { DownloadBtnContainer, IconContainer } from "./styles";
 const DownloadButton = ({ purpose, logo }) => {
   return (
     <DownloadBtnContainer>
-      <IconContainer src={logo} />
-      {purpose}
+      <IconContainer src={logo} /> {purpose}{" "}
     </DownloadBtnContainer>
   );
 };
