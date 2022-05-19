@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { MAIN_HEIGHT } from "@Common";
 
 const InnerLRGAP = 24;
 const InnerTopGAP = 126;
 
 const MainContainer = styled.main`
   position: relative;
-  height: 2000px;
+  height: ${MAIN_HEIGHT}px;
 `;
 
 const ArticleSection = styled.section``;

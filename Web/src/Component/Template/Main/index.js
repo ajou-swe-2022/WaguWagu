@@ -21,7 +21,7 @@ const renderArticles = (num) => {
 const MainTemplate = (props) => {
   return (
     <>
-      <Header />
+      <Header loginStatus={props.loginStatus} />
       <MainContainer>
         <ArticleSection>
           <ArticleContainerTitle>{"소식통"}</ArticleContainerTitle>

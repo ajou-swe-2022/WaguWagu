@@ -4,7 +4,7 @@ import {
   InfoContainer,
   CallContainer,
 } from "./style";
-import { FooterInner } from "@Constant/Footer";
+import { FooterInner } from "./constant";
 
 const FooterContents = () => {
   return (

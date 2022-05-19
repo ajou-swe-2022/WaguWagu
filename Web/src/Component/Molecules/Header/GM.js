@@ -1,6 +1,6 @@
 import { GMContainer } from "./styles";
 import { GMButton } from "@Atoms/Buttons/Header/";
-import { GMInnerBefore, GMInnerAfter } from "@Constant/Header/";
+import { GMInnerBefore, GMInnerAfter } from "./constant";
 
 const renderItems = (status) => {
   if (!status) {

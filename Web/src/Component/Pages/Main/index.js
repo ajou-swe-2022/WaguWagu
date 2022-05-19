@@ -1,17 +1,26 @@
 import MainTemplate from "@Templates/Main";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { getCookie, USER_KEY } from "@Common/Util/cookie";
 
 const Main = () => {
+  const [loginStatus, setLoginStatus] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const status = getCookie(USER_KEY);
+    if (status) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
   }, []);
 
   return (
     <>
       <MainTemplate
-        loginStatus={false}
+        loginStatus={loginStatus}
         loginMessage={"로그인 해주세요!"}
-        greetingdMessage={"임준혁님 안녕하세요!"}
+        greetingsMessage={"임준혁님 안녕하세요!"}
       ></MainTemplate>
     </>
   );

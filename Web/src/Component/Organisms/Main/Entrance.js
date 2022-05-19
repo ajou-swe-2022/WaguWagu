@@ -1,34 +1,19 @@
 import {
   MyContainer,
-  SubItemContainer,
   InstructionContainer,
   EntranceContainer,
   SubContainer,
 } from "./styles";
-import { SubButton, MyButton } from "@Atoms/Buttons/Main";
-import { SubButtonsBefore, SubButtonsAfter } from "@Constant/Main";
-
-const renderSubButtons = (status) => {
-  if (!status) {
-    return SubButtonsBefore.map((el) => {
-      return (
-        <SubItemContainer>
-          <SubButton btnName={el["btnName"]} linkTo={el["linkTo"]} />
-        </SubItemContainer>
-      );
-    });
-  } else {
-    return SubButtonsAfter.map((el) => {
-      return (
-        <SubItemContainer>
-          <SubButton btnName={el["btnName"]} linkTo={el["linkTo"]} />
-        </SubItemContainer>
-      );
-    });
-  }
-};
+import { BasicSubmenuStyles } from "./constant";
+import MyButton from "@Atoms/Buttons/Main";
+import SubMenu from "@Organisms/Before";
 
 const Entrance = ({ loginStatus, loginMessage, greetingsMessage }) => {
+  const SubMenuStyles = {
+    loginStatus: loginStatus,
+    ...BasicSubmenuStyles,
+  };
+
   return (
     <EntranceContainer>
       <InstructionContainer>
@@ -37,7 +22,7 @@ const Entrance = ({ loginStatus, loginMessage, greetingsMessage }) => {
       <MyContainer>
         <MyButton loginStatus={loginStatus} />
       </MyContainer>
-      <SubContainer>{renderSubButtons(loginStatus)}</SubContainer>
+      <SubContainer>{SubMenu({ ...SubMenuStyles })}</SubContainer>
     </EntranceContainer>
   );
 };

@@ -1,5 +1,5 @@
 import { GNBContainer } from "./styles";
-import { GNBInner } from "@Constant/Header";
+import { GNBInner } from "./constant";
 import { GNBButton } from "@Atoms/Buttons/Header";
 
 const renderItems = () => {

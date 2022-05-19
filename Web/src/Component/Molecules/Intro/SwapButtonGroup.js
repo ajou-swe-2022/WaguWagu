@@ -1,11 +1,11 @@
 import { SwapButton } from "@Atoms/Buttons/Intro";
-import { IntroBanner } from "@Constant/Intro";
+import { INTRO_PAGE_COUNT } from "@Common/";
 import { SwapContainer } from "./styles";
 
 const SwapButtonGroup = ({ turn }) => {
   const renderSwapBtns = () => {
     const btns = [];
-    for (let i = 1; i <= IntroBanner[0]; ++i) {
+    for (let i = 1; i <= INTRO_PAGE_COUNT; ++i) {
       btns.push(<SwapButton className={`btn${i}`} isFocused={turn === i} />);
     }
     return btns;

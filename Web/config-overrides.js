@@ -11,6 +11,7 @@ module.exports = override(
     "@Templates": path.resolve(__dirname, "src/Component/Template/"),
     "@Util": path.resolve(__dirname, "src/Common/Util/"),
     "@Style": path.resolve(__dirname, "src/Common/Style/"),
-    "@Constant": path.resolve(__dirname, "src/Common/Constant/"),
+    "@Common": path.resolve(__dirname, "src/Common/"),
+    "@API": path.resolve(__dirname, "src/API/"),
   })
 );

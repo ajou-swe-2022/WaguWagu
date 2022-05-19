@@ -1,11 +1,12 @@
 import Logo from "@Atoms/Logo";
-import { APPSTORE_LOGO, PLAYSTORE_LOGO } from "@Constant/Common";
 import {
+  APPSTORE_LOGO,
+  PLAYSTORE_LOGO,
   IntroBanner,
   IntroAppStoreDownloadText,
   IntroPlayStoreDownloadText,
   IntroToHomeText,
-} from "@Constant/Intro";
+} from "./constant";
 import { Download, PromotionalText, ToHome } from "@Organisms/Intro";
 import {
   Container,

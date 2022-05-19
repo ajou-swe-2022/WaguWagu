@@ -34,8 +34,4 @@ const MyContainer = styled.div`
   }
 `;
 
-const SubButtonContainer = styled.div`
-  ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
-`;
-
-export { MyContainer, SubButtonContainer, LinkContainer };
+export { MyContainer, LinkContainer };
