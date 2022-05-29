@@ -1,6 +1,5 @@
 import { css } from "styled-components";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { DefaultColor } from "@Style/";
 
 const Mixin = ({ weight, size, align, color }) => css`
@@ -13,10 +12,12 @@ const Mixin = ({ weight, size, align, color }) => css`
   }
 `;
 
-const GMContainer = styled.li`
+const GMContainer = styled.button`
   ${Mixin({ weight: 800, size: 18, align: "center", color: "#000000" })};
   list-style-type: none;
-  margin: 0px 15px;
+  margin-right: 15px;
+  background-color: transparent;
+  border: 0px;
   &::after {
     width: 1px;
     height: 16px;
@@ -44,6 +45,5 @@ const GNBContainer = styled.div`
   }
 `;
 
-const LinkContainer = styled(Link)``;
 
-export { GMContainer, GNBContainer, LinkContainer };
+export { GMContainer, GNBContainer };

@@ -9,7 +9,7 @@ import { InputFrame } from "@Organisms/Login";
 import { Button } from "@Atoms/Buttons/";
 import { LEFT_ARROW_VECTOR } from "@Common/";
 import { TITLE, INNER_LEFT, INNER_TOP, SubmitBtnStyles } from "./constant";
-import { postAccountInfo } from "@API/Account";
+import { postAccountInfo } from "@API/";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -47,6 +47,10 @@ const LoginTemplate = () => {
       });
   };
 
+  const handleSubmenu = (menuName, linkTo) => {
+    navigate(linkTo);
+  };
+
   return (
     <FullFrame>
       <LoginContainer>
@@ -64,6 +68,7 @@ const LoginTemplate = () => {
           sustainLogin={sustainLogin}
           handleIDChange={handleIDChange}
           handlePWChange={handlePWChange}
+          onClick={handleSubmenu}
         />
         <ButtonContainer>
           <Button {...SubmitBtnStyles} onClick={handleLogin}>

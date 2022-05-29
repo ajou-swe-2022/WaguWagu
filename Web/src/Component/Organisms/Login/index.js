@@ -12,6 +12,8 @@ import SubMenu from "@Organisms/Before";
 import { IDBoxStyles, PWBoxStyles, SubBtnStyles } from "./constant";
 
 const InputFrame = (props) => {
+
+
   return (
     <FormContainer top={props.top} left={props.left}>
       <Input {...IDBoxStyles} onChange={props.handleIDChange}></Input>
@@ -33,7 +35,7 @@ const InputFrame = (props) => {
           </span>
         </CheckContainer>
         <SubmenuContainer>
-          <SubMenu {...SubBtnStyles} />
+          <SubMenu onClick={props.onClick} {...SubBtnStyles} />
         </SubmenuContainer>
       </SubContainer>
     </FormContainer>

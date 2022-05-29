@@ -2,7 +2,7 @@ import { SubContainer, SubItemContainer } from "./styles";
 import { SubButtonsBefore, SubButtonsAfter } from "./constant";
 import { SubButton } from "@Atoms/Buttons";
 
-const renderSubButtons = (status, color, weight, size) => {
+const renderSubButtons = (status, onClick, color, weight, size) => {
   if (!status) {
     return SubButtonsBefore.map((el) => {
       return (
@@ -10,6 +10,7 @@ const renderSubButtons = (status, color, weight, size) => {
           <SubButton
             btnName={el["btnName"]}
             linkTo={el["linkTo"]}
+            onClick={onClick}
             color={color}
             weight={weight}
             size={size}
@@ -24,6 +25,7 @@ const renderSubButtons = (status, color, weight, size) => {
           <SubButton
             btnName={el["btnName"]}
             linkTo={el["linkTo"]}
+            onClick={onClick}
             color={color}
             weight={weight}
             size={size}
@@ -34,10 +36,10 @@ const renderSubButtons = (status, color, weight, size) => {
   }
 };
 
-const SubMenu = ({ loginStatus, color, weight, size }) => {
+const SubMenu = ({ loginStatus, onClick, color, weight, size }) => {
   return (
     <SubContainer>
-      {renderSubButtons(loginStatus, color, weight, size)}
+      {renderSubButtons(loginStatus, onClick, color, weight, size)}
     </SubContainer>
   );
 };

@@ -1,8 +1,13 @@
 import { BasicButton, SubButtonContainer } from "./styles";
 
-const SubButton = ({ btnName, linkTo, color, weight, size }) => {
+const SubButton = ({ btnName, linkTo, onClick, color, weight, size }) => {
+
+  const handleOnClick = () => {
+    onClick(btnName, linkTo);
+  };
+
   return (
-    <SubButtonContainer to={linkTo} color={color} weight={weight} size={size}>
+    <SubButtonContainer onClick={handleOnClick} color={color} weight={weight} size={size}>
       {btnName}
     </SubButtonContainer>
   );

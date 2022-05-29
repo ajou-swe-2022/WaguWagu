@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { css } from "styled-components";
-import { Link } from "react-router-dom";
 import { DefaultColor } from "@Style/";
 
 const Mixin = ({ weight, size, align, color }) => css`
@@ -37,8 +36,10 @@ const BasicButton = styled.button`
   }
 `;
 
-const SubButtonContainer = styled(Link)`
+const SubButtonContainer = styled.button`
   display: block;
+  border : none;
+  background-color : transparent;
   ${Mixin({
     weight: (props) => props.weight,
     size: (props) => props.size,

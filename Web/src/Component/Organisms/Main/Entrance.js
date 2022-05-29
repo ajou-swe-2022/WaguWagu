@@ -8,9 +8,10 @@ import { BasicSubmenuStyles } from "./constant";
 import MyButton from "@Atoms/Buttons/Main";
 import SubMenu from "@Organisms/Before";
 
-const Entrance = ({ loginStatus, loginMessage, greetingsMessage }) => {
+const Entrance = ({ loginStatus, onClick, loginMessage, greetingsMessage }) => {
   const SubMenuStyles = {
     loginStatus: loginStatus,
+    onClick : onClick,
     ...BasicSubmenuStyles,
   };
 
