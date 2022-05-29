@@ -14,7 +14,7 @@ import { postAccountInfo } from "@API/";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { setCookie, USER_KEY } from "@Common/Util/cookie";
+import { setCookie, USER_KEY, USER_NAME } from "@Common/Util/cookie";
 
 const LoginTemplate = () => {
   const [sustainLogin, setSustainLogin] = useState(false);
@@ -38,7 +38,9 @@ const LoginTemplate = () => {
   const handleLogin = async (e) => {
     await postAccountInfo({ email: ID, password: PW })
       .then((res) => {
+        console.log(res);
         setCookie(USER_KEY, res.data.id, { path: "/" });
+        setCookie(USER_NAME, res.data.name, { path: "/" });
         navigate("/main");
       })
       .catch((rej) => {

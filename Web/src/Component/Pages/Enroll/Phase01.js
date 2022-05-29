@@ -38,7 +38,7 @@ const Phase01 = (props) => {
         <InputTitleContainer margin={6}>{"이름"}</InputTitleContainer>
         <InputTextContainer
           placeholder="  이름을 적어주세요"
-          id="name"
+          id="userName"
           onChange={props.onChange}
         ></InputTextContainer>
       </InputContainer>

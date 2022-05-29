@@ -9,8 +9,7 @@ const FullFrame = styled.div`
 `;
 
 const EnrollContainer = styled.div`
-  width: 838px;
-  height: 722px;
+  padding: 30px 80px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -103,26 +102,6 @@ const InputSelectContainer = styled(Select)`
   }
 `;
 
-const InputAddressButton = styled.button`
-  width: 480px;
-  height: 50px;
-  padding-left: 13px;
-  border: 1px solid #d0d2e0;
-  border-radius: 5px;
-  background-color: #ffffff;
-  color: #d0d2e0;
-  text-align: start;
-  font-weight: 600;
-  font-size: 20px;
-  transition: 0.2s;
-  &:hover {
-    background-color: ${DefaultColor};
-    color: #ffffff;
-    cursor: pointer;
-    opacity: 0.5;
-  }
-`;
-
 const InputTextContainer = styled.input`
   margin: ${(props) => props.margin}px 0px;
   padding: 2px;
@@ -138,6 +117,27 @@ const InputTextContainer = styled.input`
   border-radius: 5px;
   font-size: 20px;
   color: #000000;
+  ::placeholder {
+    color: #d0d2e0;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px ${DefaultColor};
+    ::placeholder {
+      opacity: 0;
+    }
+  }
+`;
+
+const InputTextAreaContainer = styled.textarea`
+  height: 400px;
+  width: 480px;
+  padding: 10px;
+  border: 1px solid #d0d2e0;
+  border-radius: 5px;
+  font-size: 20px;
   ::placeholder {
     color: #d0d2e0;
     font-weight: 600;
@@ -198,8 +198,8 @@ export {
   InputContainer,
   InputTitleContainer,
   InputSelectContainer,
-  InputAddressButton,
   InputTextContainer,
+  InputTextAreaContainer,
   SubmitButton,
   DupCheckButton,
 };

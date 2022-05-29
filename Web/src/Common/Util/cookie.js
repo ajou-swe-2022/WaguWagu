@@ -4,6 +4,8 @@ const cookies = new Cookies();
 
 export const USER_KEY = "user-id";
 
+export const USER_NAME = "user-name";
+
 export const setCookie = (key, value, { options }) => {
   return cookies.set(key, value, { ...options });
 };
@@ -14,4 +16,4 @@ export const getCookie = (key) => {
 
 export const removeCookie = (key) => {
   return cookies.remove(key);
-}
+};

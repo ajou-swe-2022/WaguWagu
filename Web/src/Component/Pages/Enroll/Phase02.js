@@ -8,23 +8,30 @@ import {
   InputContainer,
   InputTitleContainer,
   InputSelectContainer,
-  InputAddressButton,
   InputTextContainer,
-  DupCheckButton,
   SubmitButton,
 } from "./styles";
 
 import { LEFT_ARROW_VECTOR, PROCEDURE_VECTOR } from "@Common/";
 import { CATEGORIES } from "@Common/";
 
+import DaumPostcode from "react-daum-postcode";
 import { useState } from "react";
 
 const Phase01 = (props) => {
-  const [isModal, setModal] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  const onComplete = (data) => {
+    setVisible(true);
+    props.setAddress(data.roadAddress);
+  };
 
   return (
     <EnrollContainer>
-      <VectorContainer src={LEFT_ARROW_VECTOR}></VectorContainer>
+      <VectorContainer
+        src={LEFT_ARROW_VECTOR}
+        onClick={props.popBack}
+      ></VectorContainer>
       <TitleContainer>{"와구와구 사장님 회원가입"}</TitleContainer>
       <ProcedureContainer>
         <ProcedureVector src={PROCEDURE_VECTOR} />
@@ -52,7 +59,34 @@ const Phase01 = (props) => {
 
       <InputContainer margin={20}>
         <InputTitleContainer margin={6}>{"가게 지역"}</InputTitleContainer>
-        <InputAddressButton>{"주소를 입력해주세요!"}</InputAddressButton>
+        <div>
+          <DaumPostcode
+            style={{
+              border: "1px solid #d0d2e0",
+              borderRadius: "5px",
+              padding: "20px",
+              marginRight: "140px",
+            }}
+            onComplete={onComplete}
+          />
+          <InputTextContainer
+            style={{
+              display: visible ? "block" : "none",
+              marginTop: "6px",
+              fontWeight: "600",
+              fontSize: "20px",
+            }}
+            disabled={true}
+            value={`  ${props.address}`}
+          ></InputTextContainer>
+          <InputTextContainer
+            style={{ display: visible ? "block" : "none", marginTop: "6px" }}
+            placeholder={"  상세주소를 적어주세요"}
+            onChange={(e) => {
+              props.setAddressDetail(e.target.value);
+            }}
+          ></InputTextContainer>
+        </div>
       </InputContainer>
 
       <InputContainer margin={20}>

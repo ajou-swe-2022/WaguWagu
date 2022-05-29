@@ -8,9 +8,7 @@ export const LEFT_ARROW_VECTOR = `/assets/icon/leftarrow.png`;
 
 export const PROCEDURE_VECTOR = `/assets/icon/procedure.png`;
 
-// FOR COOKIE CHECK //
-
-export const USER_KEY = "user-id";
+// Default Settings //
 
 export const MAIN_HEIGHT = 2000;
 

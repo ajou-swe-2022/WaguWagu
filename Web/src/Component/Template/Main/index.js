@@ -10,7 +10,7 @@ import Header from "@Organisms/Header/";
 import Footer from "@Organisms/Footer/";
 import { Article, Entrance } from "@Organisms/Main";
 
-import { USER_KEY, removeCookie, getCookie } from "@Util/cookie";
+import { USER_KEY, USER_NAME, removeCookie, getCookie } from "@Util/cookie";
 import { scrollTop } from "@Util/scrollTop";
 
 import { loginMessage, greetingsMessage } from "./constant";
@@ -27,7 +27,6 @@ const renderArticles = (num) => {
 };
 
 const MainTemplate = (props) => {
-
   const navigate = useNavigate();
   const [loginStatus, setLoginStatus] = useState(false);
 
@@ -36,6 +35,7 @@ const MainTemplate = (props) => {
     if (menuName === "로그아웃") {
       setLoginStatus(false);
       removeCookie(USER_KEY);
+      removeCookie(USER_NAME);
     }
   };
 
@@ -51,7 +51,7 @@ const MainTemplate = (props) => {
 
   return (
     <>
-      <Header loginStatus={loginStatus} onClick={handleLoginout}/>
+      <Header loginStatus={loginStatus} onClick={handleLoginout} />
       <MainContainer>
         <ArticleSection>
           <ArticleContainerTitle>{"소식통"}</ArticleContainerTitle>
@@ -59,11 +59,16 @@ const MainTemplate = (props) => {
         </ArticleSection>
         <MySection>
           <MyContainer>
-            <Entrance loginStatus={loginStatus} onClick={handleLoginout} loginMessage={loginMessage} greetingsMessage={greetingsMessage} />
+            <Entrance
+              loginStatus={loginStatus}
+              onClick={handleLoginout}
+              loginMessage={loginMessage}
+              greetingsMessage={greetingsMessage}
+            />
           </MyContainer>
         </MySection>
       </MainContainer>
-      <Footer/>
+      <Footer />
     </>
   );
 };
