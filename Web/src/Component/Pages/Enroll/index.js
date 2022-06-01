@@ -167,7 +167,7 @@ const Enroll = () => {
               "tel": tell,
             });
             alert("회원가입이 완료되었습니다!");
-            setCookie(USER_KEY, email, { path: "/" });
+            setCookie(USER_KEY, id, { path: "/" });
             setCookie(USER_NAME, name, { path: "/" });
             navigateBack();
           })
@@ -202,6 +202,7 @@ const Enroll = () => {
           idCheck={emailVaildationCheck}
           onClick={validationCheck01}
           popBack={navigateBack}
+          phase={phaseAbled}
         ></Phase01>
       );
     else if (phaseAbled >= 2 && phaseAbled < 3)

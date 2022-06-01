@@ -10,7 +10,7 @@ import {
   StoreManagement,
 } from "./constant";
 
-import { removeCookie, USER_KEY } from "@Util/cookie";
+import { removeCookie, USER_KEY, USER_NAME } from "@Util/cookie";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -30,16 +30,16 @@ const renderMenu = (items) => {
 };
 
 const AdminTemplate = () => {
-
   const navigate = useNavigate();
   const [loginStatus, setLoginStatus] = useState(true);
 
   const handleLoginout = (menuName, linkTo) => {
-    navigate(linkTo);
     if (menuName === "로그아웃") {
       setLoginStatus(false);
       removeCookie(USER_KEY);
+      removeCookie(USER_NAME);
     }
+    navigate(linkTo);
   };
 
   return (

@@ -13,8 +13,6 @@ import { Article, Entrance } from "@Organisms/Main";
 import { USER_KEY, USER_NAME, removeCookie, getCookie } from "@Util/cookie";
 import { scrollTop } from "@Util/scrollTop";
 
-import { loginMessage, greetingsMessage } from "./constant";
-
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -30,6 +28,9 @@ const MainTemplate = (props) => {
   const navigate = useNavigate();
   const [loginStatus, setLoginStatus] = useState(false);
 
+  const loginMessage = "로그인 해주세요!";
+  const [greetingsMessage, setGreetingsMessage] = useState("");
+
   const handleLoginout = (menuName, linkTo) => {
     navigate(linkTo);
     if (menuName === "로그아웃") {
@@ -44,6 +45,7 @@ const MainTemplate = (props) => {
     scrollTop();
     if (status) {
       setLoginStatus(true);
+      setGreetingsMessage(decodeURI(getCookie(USER_NAME)));
     } else {
       setLoginStatus(false);
     }

@@ -59,6 +59,7 @@ const Phase01 = (props) => {
           placeholder=" 이메일 형식으로 적어주세요"
           id="email"
           onChange={props.onChange}
+          phase={props.phase}
         ></InputTextContainer>
       </InputContainer>
       <InputContainer margin={15}>

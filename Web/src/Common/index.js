@@ -8,6 +8,18 @@ export const LEFT_ARROW_VECTOR = `/assets/icon/leftarrow.png`;
 
 export const PROCEDURE_VECTOR = `/assets/icon/procedure.png`;
 
+export const EDIT_VECTOR = `/assets/icon/edit.png`;
+
+export const IMG_UNAVAILABLE_VECTOR = `/assets/icon/imageunavailable.png`;
+
+export const MR_CHEF_IMG = `/assets/icon/mrchef.png`;
+
+export const FOOD_IMG = `/assets/icon/food.png`;
+
+export const TABLE_IMG = `/assets/icon/table.png`;
+
+export const CHECK_VECTOR = `/assets/icon/check.png`;
+
 // Default Settings //
 
 export const MAIN_HEIGHT = 2000;
