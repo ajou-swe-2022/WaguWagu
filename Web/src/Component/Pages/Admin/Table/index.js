@@ -23,6 +23,7 @@ import {
   postTableInfo,
   deleteTableInfo,
   putTableInfo,
+  getReservationInfo,
 } from "@API/";
 
 const AdminTable = () => {
@@ -32,13 +33,14 @@ const AdminTable = () => {
 
   // data
   const [data, setData] = useState({});
-
+  const [reservation, setReservation] = useState([]);
   const [newTable, setNewTable] = useState({
     name: "",
     description: "",
     maxCustomerCount: 0,
     minOrderAmout: 0,
   });
+  const [occupiedCount, setOccupiedCount] = useState(0);
 
   //render
   const [render, setRender] = useState(true);
@@ -88,6 +90,14 @@ const AdminTable = () => {
   // Add Table : 다른 효율적인 방법을 찾고 싶다.. 일단은 진행..!
   const handleTableAdd = async (e) => {
     const userID = getCookie(USER_KEY);
+    if (newTable.name === "") {
+      alert("테이블명을 입력하세요!");
+      return;
+    }
+    if (newTable.description === "") {
+      alert("테이블 설명을 입력해주세요!");
+      return;
+    }
     await postTableInfo({ userID: userID, data: newTable })
       .then((res) => {
         alert("테이블 정보가 추가되었습니다!");
@@ -142,11 +152,6 @@ const AdminTable = () => {
       });
   };
 
-  // Chart
-
-  // RequestList
-
-  // UseEffect
   useEffect(() => {
     scrollTop();
     const status = getCookie(USER_KEY);
@@ -158,6 +163,9 @@ const AdminTable = () => {
     getTableInfo(status).then((res) => {
       setData(res.data);
     });
+    getReservationInfo(status).then((res) => {
+      setReservation(res.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -165,7 +173,10 @@ const AdminTable = () => {
     getTableInfo(status).then((res) => {
       setData(res.data);
     });
-  }, [render]);
+    getReservationInfo(status).then((res) => {
+      setReservation(res.data);
+    });
+  }, [render, reservation]);
 
   return (
     <>
@@ -183,12 +194,17 @@ const AdminTable = () => {
               modify={handleModify}
               sleepAndWake={handleSleepAndWake}
               delete={handleDelete}
+              reservations={reservation.reservations}
             />
           </LeftContainer>
           <RightContainer>
             <div style={{ height: "500px", width: "500px", marginTop: "70px" }}>
-              <Chart data={data.tables} />
-              <RequestGroup />
+              <Chart data={data.tables} occupiedCount={occupiedCount} />
+              <RequestGroup
+                reservations={reservation.reservations}
+                modify={handleModify}
+                setOccupiedCount={setOccupiedCount}
+              />
             </div>
           </RightContainer>
         </FlexContainer>

@@ -36,7 +36,7 @@ export const DEL_MENU_INFO = (params) => {
   return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants/${params.userID}/menu/${params.menuID}`;
 };
 
-// ============== Admin (Table) ============== //
+// ============== Admin (Table-Info) ============== //
 
 export const GET_TABLE_INFO = (params) => {
   return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants/${params}/tables`;
@@ -52,4 +52,18 @@ export const DEL_TABLE_INFO = (params) => {
 
 export const PUT_TABLE_INFO = (params) => {
   return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants/${params.userID}/tables/${params.tableID}`;
+};
+
+// ============== Admin (Table_Reservation) ============== //
+
+export const GET_RESERVATION_INFO = (params) => {
+  return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/restaurants/${params}/reservations`;
+};
+
+export const PUT_RESERVATION_INFO = (params) => {
+  return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/reservations/${params.reservationID}`;
+};
+
+export const DELETE_RESERVATION_INFO = (params) => {
+  return `https://diunbu3dmy.ap-northeast-1.awsapprunner.com:443/api/v1/reservations/${params}`;
 };

@@ -10,6 +10,9 @@ import {
   GET_TABLE_INFO,
   DEL_TABLE_INFO,
   PUT_TABLE_INFO,
+  GET_RESERVATION_INFO,
+  PUT_RESERVATION_INFO,
+  DELETE_RESERVATION_INFO,
 } from "@Common/API";
 import axios from "axios";
 import { POST_TABLE_INFO } from "../Common/API";
@@ -86,4 +89,24 @@ export const putTableInfo = async (params) => {
   return await axios.put(PUT_TABLE_INFO(params), JSON.stringify(params.data), {
     headers: { "Content-Type": `application/json` },
   });
+};
+
+// admin - reservation
+
+export const getReservationInfo = async (params) => {
+  return await axios.get(GET_RESERVATION_INFO(params));
+};
+
+export const putReservationInfo = async (params) => {
+  return await axios.put(
+    PUT_RESERVATION_INFO(params),
+    JSON.stringify(params.data),
+    {
+      headers: { "Content-Type": `application/json` },
+    }
+  );
+};
+
+export const deleteReservationInfo = async (params) => {
+  return await axios.delete(DELETE_RESERVATION_INFO(params));
 };

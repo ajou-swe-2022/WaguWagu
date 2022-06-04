@@ -11,8 +11,9 @@ import {
 import { TABLE_IMG } from "@Common";
 import { getCookie, USER_KEY } from "@Common/Util/cookie";
 import { putTableInfo } from "@API/";
+import { RESERVATION_STATUS } from "@Common/";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const styles = { backgroundColor: "#ffffff", height: "36px", textSize: "24px" };
 
@@ -24,6 +25,9 @@ const TableComponent = (props) => {
     props.el.maxCustomerCount
   );
   const [minOrderAmount, setMinOrderAmount] = useState(props.el.minOrderAmount);
+
+  // occupied
+  const [occupied, setOccupied] = useState(false);
 
   // handleChange
   const handleNameChange = (e) => {
@@ -53,11 +57,9 @@ const TableComponent = (props) => {
         description: description === "" ? props.el.description : description,
         enabled: props.el.enabled,
         maxCustomerCount:
-          maxCustomerCount === ""
-            ? props.el.maxCustomerCount
-            : maxCustomerCount,
+          maxCustomerCount === 0 ? props.el.maxCustomerCount : maxCustomerCount,
         minOrderAmount:
-          minOrderAmount === "" ? props.el.minOrderAmount : minOrderAmount,
+          minOrderAmount === 0 ? props.el.minOrderAmount : minOrderAmount,
         name: name === "" ? props.el.name : name,
       },
     })
@@ -70,12 +72,33 @@ const TableComponent = (props) => {
       });
   };
 
+  // handleDisabled
+  useEffect(() => {
+    setOccupied(false);
+    if (props.reservations !== undefined) {
+      props.reservations.forEach((el) => {
+        if (
+          el.tableID === props.el.id &&
+          el.status === RESERVATION_STATUS.APPROVE
+        ) {
+          setOccupied(true);
+          return;
+        }
+      });
+    }
+  }, [props]);
+
   return (
     <TableContainer style={{ margin: "1px 0px -3px 0px" }}>
       <TableImg src={TABLE_IMG} />
       <TableDataContainer>
-        <TableEnabled enabled={props.el.enabled}>
-          {props.el.enabled ? "가용" : "비활성"}
+        <TableEnabled
+          enabled={props.el.enabled}
+          style={{
+            color: props.el.enabled ? (occupied ? "red" : "green") : "#C4C4C4",
+          }}
+        >
+          {props.el.enabled ? (occupied ? "점유" : "활성") : "비활성"}
         </TableEnabled>
         <div>
           <TableData
@@ -83,6 +106,7 @@ const TableComponent = (props) => {
             placeholder={`${props.el.name}`}
             style={{ ...styles }}
             onChange={handleNameChange}
+            disabled={occupied}
           />
           <TableDataLabel>테이블 명</TableDataLabel>
         </div>
@@ -92,6 +116,7 @@ const TableComponent = (props) => {
             placeholder={`${props.el.description}`}
             style={{ ...styles }}
             onChange={handleDescriptionChange}
+            disabled={occupied}
           />
           <TableDataLabel>설명</TableDataLabel>
         </div>
@@ -101,6 +126,7 @@ const TableComponent = (props) => {
             placeholder={`${props.el.maxCustomerCount} 명`}
             style={{ ...styles }}
             onChange={handleMax}
+            disabled={occupied}
           />
           <TableDataLabel>인원 제한</TableDataLabel>
         </div>
@@ -110,6 +136,7 @@ const TableComponent = (props) => {
             placeholder={`${props.el.minOrderAmount} 원`}
             style={{ ...styles }}
             onChange={handleMin}
+            disabled={occupied}
           />
           <TableDataLabel>최소주문금액</TableDataLabel>
         </div>
@@ -127,6 +154,8 @@ const TableComponent = (props) => {
             }}
             data-tableid={props.el.id}
             onClick={handleModify}
+            disabled={occupied}
+            occupied={occupied}
           >
             수정
           </Btn>
@@ -137,6 +166,8 @@ const TableComponent = (props) => {
             }}
             onClick={props.sleepAndWake}
             data-tableid={props.el.id}
+            disabled={occupied}
+            occupied={occupied}
           >
             {props.el.enabled ? "비활성" : "활성"}
           </Btn>
@@ -147,6 +178,8 @@ const TableComponent = (props) => {
             }}
             onClick={props.delete}
             data-tableid={props.el.id}
+            disabled={occupied}
+            occupied={occupied}
           >
             삭제
           </Btn>

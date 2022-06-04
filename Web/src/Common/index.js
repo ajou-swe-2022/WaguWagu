@@ -46,3 +46,10 @@ export const CATEGORIES = [
   { value: "FAST", label: "패스트푸드" },
   { value: "WEST", label: "양식" },
 ];
+
+export const RESERVATION_STATUS = {
+  REQUEST: "WAITED",
+  APPROVE: "APPROVED",
+  REJECT: "REJECTED",
+  FINISH: "DONE",
+};
